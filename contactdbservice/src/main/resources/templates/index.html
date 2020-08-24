@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset ="ISO-8859-1">
+<title>Contact Database</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+crossorigin="anonymous">
+</head>
+
+
+<body>
+<div class="container my-2" align="center">
+   <h3 align="center">Contact Database</h3>
+   <br>
+   
+   <a th:href="@{/showContactForm}" class="btn btn-primary btn-sm-md-3">Add New Contact</a><br><br>
+   
+   <table border="1" class="table table-strpied table-responsive-md-12">
+       <thead align="center">
+           <tr>
+             <th>NAME</th>
+             <th>EMAIL</th>
+             <th>LOCATION</th>
+             <th>PHONE</th>
+             <th>Action</th>
+           </tr>  
+      </thead>
+      <tbody align="center">
+           <tr th:each ="contact : ${listContact}">
+             <td th:text="${contact.name}"></td>
+             <td th:text="${contact.email}"></td>
+             <td th:text="${contact.location}"></td>
+             <td th:text="${contact.phone}"></td>
+             <td>
+               <a th:href="@{/showFormForUpdate/{id}(id=${contact.id})}" class= "btn btn-primary">Update</a>
+               <a th:href="@{/deleteForm/{id}(id=${contact.id})}" class= "btn btn-danger">Delete</a>
+             </td>
+           </tr>
+      </tbody>
+   </table>
+   
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset ="ISO-8859-1">
+<title>Contact Database</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+crossorigin="anonymous">
+</head>
+
+
+<body>
+<div class="container my-2" align="center">
+   <h3 align="center">Add New Contact</h3>
+   <br>
+   
+   <form action="#" th:action="@{/saveContact}" th:object="${contactdb}" method="POST">
+   
+      
+      <input type="text" th:field="*{name}" 
+      placeholder="enter name" class="form-control md-4 col-4"><br>
+      
+       <input type="text" th:field="*{email}" 
+      placeholder="enter email" class="form-control md-4 col-4"><br>
+      
+       <input type="text" th:field="*{location}" 
+      placeholder="enter location" class="form-control md-4 col-4"><br>
+      
+       <input type="text" th:field="*{phone}" 
+      placeholder="enter phone" class="form-control md-4 col-4"><br><br>
+      
+      <button type="submit" class="btn btn-info col-2">Save Contact</button>
+      
+   </form><br>
+   
+   <hr>
+   
+         <a th:href="@{/}">back to contact list page</a>
+   
+   </div>
+ </body>
+ </html>
